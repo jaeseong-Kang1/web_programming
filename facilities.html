@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>공공 운동 시설 목록</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        text-align: center;
+      }
+      .facility-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      .facility-list li {
+        padding: 10px;
+        border: 1px solid #ddd;
+        margin: 5px;
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>공공 운동 시설 목록</h1>
+    <div id="region-name"></div>
+    <ul class="facility-list" id="facility-list"></ul>
+
+    <script>
+      // URL에서 'region' 파라미터를 받아오기
+      const urlParams = new URLSearchParams(window.location.search);
+      const region = urlParams.get("region");
+
+      // 페이지 상단에 지역명 표시
+      document.getElementById(
+        "region-name"
+      ).innerText = `${region} 지역의 운동 시설 목록`;
+
+      // 각 지역에 따른 운동 시설 목록
+      const facilities = {
+        north: ["북부 운동 시설 1", "북부 운동 시설 2", "북부 운동 시설 3"],
+        central: ["중부 운동 시설 1", "중부 운동 시설 2", "중부 운동 시설 3"],
+        west: ["서부 운동 시설 1", "서부 운동 시설 2", "서부 운동 시설 3"],
+        east: ["동부 운동 시설 1", "동부 운동 시설 2", "동부 운동 시설 3"],
+        south: ["남부 운동 시설 1", "남부 운동 시설 2", "남부 운동 시설 3"],
+      };
+
+      // 선택된 지역의 운동 시설 목록을 출력
+      const facilityList = facilities[region] || [];
+      const facilityListElement = document.getElementById("facility-list");
+
+      // 목록을 HTML로 추가
+      facilityList.forEach((facility) => {
+        const li = document.createElement("li");
+        li.textContent = facility;
+        facilityListElement.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
