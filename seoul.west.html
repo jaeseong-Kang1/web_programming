@@ -35,13 +35,13 @@
     </style>
   </head>
   <body>
-    <h1>서울시 농구장·축구장 정보 (구별)</h1>
+    <h1>서울시 농구장·축구장·수영장 정보 (서부)</h1>
     <div id="buttons"></div>
     <div id="results"></div>
 
     <script>
       // 보여줄 5개 구
-      const desiredAreas = ["강동구", "양천구", "영등포구", "구로구", "금천구"];
+      const desiredAreas = ["강서구", "양천구", "영등포구", "구로구", "금천구"];
 
       // OpenAPI 키와 URL 포맷
       const API_KEY = "7a4c614179776f7432396372726b47";
@@ -54,7 +54,7 @@
       const urls = [
         { type: "농구장", url: BASE_URL + "농구장" },
         { type: "축구장", url: BASE_URL + "축구장" },
-        { type: "테니스장", url: BASE_URL + "테니스장" },
+        { type: "수영장", url: BASE_URL + "수영장" },
       ];
 
       // 두 종목을 Promise.all 로 병렬 호출
@@ -70,7 +70,7 @@
                 area: row.querySelector("AREANM")?.textContent || "",
                 name: row.querySelector("SVCNM")?.textContent || "",
                 place: row.querySelector("PLACENM")?.textContent || "",
-                tel: row.querySelector("TEL")?.textContent || "",
+                tel: row.querySelector("TELNO")?.textContent || "",
                 status: row.querySelector("SVCSTATNM")?.textContent || "",
                 url: row.querySelector("SVCURL")?.textContent || "",
               }));
