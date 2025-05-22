@@ -66,7 +66,20 @@
 
     <script>
       function goToRegion(region) {
-        window.location.href = `facilities.html?region=${region}`;
+        const pageMap = {
+          north: "seoul.north.html",
+          central: "seoul.central.html",
+          west: "seoul.west.html",
+          east: "seoul.east.html",
+          south: "seoul.south.html",
+        };
+
+        const targetPage = pageMap[region];
+        if (targetPage) {
+          window.location.href = targetPage;
+        } else {
+          alert("잘못된 지역입니다.");
+        }
       }
     </script>
   </body>
