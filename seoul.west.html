@@ -102,7 +102,7 @@
       // 버튼 클릭 시 해당 구의 시설 리스트 출력
       function showFacilities(area, facilities) {
         const resultsDiv = document.getElementById("results");
-        resultsDiv.innerHTML = `<h2>${area} 농구장·축구장 목록</h2>`;
+        resultsDiv.innerHTML = `<h2>${area} 농구장·축구장·수영장 목록</h2>`;
         const list = facilities.filter((f) => f.area === area);
 
         if (list.length === 0) {
