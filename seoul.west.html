@@ -60,7 +60,7 @@
       // 두 종목을 Promise.all 로 병렬 호출
       Promise.all(
         urls.map((entry) =>
-          fetch("https://cors-anywhere.herokuapp.com/" + entry.url)
+          fetch(entry.url)
             .then((res) => res.text())
             .then((str) => new DOMParser().parseFromString(str, "text/xml"))
             .then((xml) => {
